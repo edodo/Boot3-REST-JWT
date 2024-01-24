@@ -1,0 +1,108 @@
+백명숙(강사) 수신자 모두 9:05 AM
+안녕하세요? 강의자료 다운로드 링크입니다. https://drive.google.com/drive/u/0/folders/1bseQkglLATG1FUvc7mvX2uYI3AryZOZS
+https://drive.google.com/drive/u/0/folders/1bseQkglLATG1FUvc7mvX2uYI3AryZOZS
+
+백명숙(강사) 수신자 모두 9:12 AM
+https://spring.io/projects/spring-boot/
+https://start.spring.io/
+
+백명숙(강사) 수신자 모두 9:18 AM
+https://www.oracle.com/kr/java/graalvm/what-is-graalvm/
+https://jakarta.ee/
+
+백명숙(강사) 수신자 모두 9:24 AM
+https://jakarta.ee/specifications/platform/8/apidocs/
+
+백명숙(강사) 수신자 모두 9:51 AM
+10시에 시작합니다~
+
+백명숙(강사) 수신자 모두 10:06 AM
+https://spring.io/blog/2023/07/13/new-in-spring-6-1-restclient/
+https://start.spring.io/
+
+백명숙(강사) 수신자 모두 10:13 AM
+Boot3-REST-JWT
+com.boot3.myrestapi
+
+백명숙(강사) 수신자 모두 10:17 AM
+https://start.spring.io/#!type=maven-project&language=java&platformVersion=3.2.2&packaging=jar&jvmVersion=17&groupId=com.boot3&artifactId=Boot3-REST-JWT&name=Boot3-REST-JWT&description=Demo%20project%20for%20Spring%20Boot&packageName=com.boot3.myrestapi&dependencies=web,data-jpa,hateoas,validation,h2,mariadb,lombok,devtools,configuration-processor
+
+백명숙(강사) 수신자 모두 10:24 AM
+https://drive.google.com/drive/u/0/folders/1bseQkglLATG1FUvc7mvX2uYI3AryZOZS
+
+안근창(비즈니스온커뮤니케이션) 수신자 모두 10:25 AM
+감사합니다
+
+백명숙(강사) 수신자 모두 10:50 AM
+11시에 시작합니다~
+
+백명숙(강사) 수신자 모두 11:01 AM
+Lecture 엔티티 (github.com)
+public enum LectureStatus {
+    DRAFT, PUBLISHED, BEGAN_ENROLLMENT
+}
+
+백명숙(강사) 수신자 모두 11:07 AM
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@EqualsAndHashCode(of="id")
+ctrl + shift + t : 테스트 케이스 추가
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@EqualsAndHashCode(of="id")
+public class Lecture {
+    private Integer id;
+    private String name;
+    private String description;
+
+    private LocalDateTime beginEnrollmentDateTime;
+    private LocalDateTime closeEnrollmentDateTime;
+    private LocalDateTime beginLectureDateTime;
+    private LocalDateTime endLectureDateTime;
+    
+    private String location;
+    private int basePrice;
+    private int maxPrice;
+    private int limitOfEnrollment;
+    private boolean offline;
+
+    private boolean free;
+    private LectureStatus lectureStatus = LectureStatus.DRAFT;
+}
+public enum LectureStatus {
+    DRAFT, PUBLISHED, BEGAN_ENROLLMENT
+}
+
+백명숙(강사) 수신자 모두 11:12 AM
+https://github.com/mysoyul/SpringBoot3.2_RESTAPI_JWT
+
+백명숙(강사) 수신자 모두 11:23 AM
+https://restfulapi.net/http-status-201-created/
+Spring HATEOAS
+
+백명숙(강사) 수신자 모두 11:30 AM
+https://docs.spring.io/spring-hateoas/docs/current/api/org/springframework/hateoas/server/mvc/WebMvcLinkBuilder.html
+
+백명숙(강사) 수신자 모두 11:38 AM
+{ "name":"SpringBoot", "description":"REST API Development with Spring", "beginEnrollmentDateTime":"2023-02-03 10:08" , "closeEnrollmentDateTime":"2023-02-04 10:08", "beginLectureDateTime":"2023-02-10 10:08", "endLectureDateTime":"2023-02-11 10:08", "location":"강의장", "basePrice":100, "maxPrice":200, "limitOfEnrollment":100 }
+http://localhost:8080/api/lectures
+https://drive.google.com/drive/folders/1f7FTlzuaes-z9p9tbfrgxqlx2zcL2zC6
+https://drive.google.com/drive/folders/1f7FTlzuaes-z9p9tbfrgxqlx2zcL2zC6
+
+백명숙(강사) 수신자 모두 11:45 AM
+https://drive.google.com/drive/u/0/folders/1bseQkglLATG1FUvc7mvX2uYI3AryZOZS
+13시에 큐알 태깅해주세요. 점심식사 맛있게 하세요~
+
+
+https://docs.google.com/spreadsheets/d/1j2bETQxr0XPQk1YnFjKCv7P6gmfsEB0eubXC-F8NYj8/edit#gid=0
+
+https://github.com/edodo/Boot3-REST-JWT
+https://github.com/mysoyul/SpringBoot3.2_RESTAPI_JWT/commit/6272d9f6e7a97b8426957e6e64aa486f23b6cb25
+https://spring.io/projects/spring-hateoas/
+https://drive.google.com/drive/folders/1f7FTlzuaes-z9p9tbfrgxqlx2zcL2zC6
