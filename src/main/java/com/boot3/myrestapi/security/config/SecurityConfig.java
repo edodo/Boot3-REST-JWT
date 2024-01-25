@@ -1,4 +1,4 @@
-package com.boot3.myrestapi.security;
+package com.boot3.myrestapi.security.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
