@@ -10,13 +10,16 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.MediaTypes;
+import org.springframework.hateoas.PagedModel;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.Optional;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 
@@ -30,15 +33,26 @@ public class LectureController {
     private final LectureValidator lectureValidator;
 
     @GetMapping
-    public ResponseEntity queryLectures(Pageable pageable) {
+    public ResponseEntity<?> queryLectures(Pageable pageable, PagedResourcesAssembler<LectureResDto>assembler) {
+        System.out.println(pageable.getClass().getName());
+        System.out.println(pageable);
         Page<Lecture> lecturePage = this.lectureRepository.findAll(pageable);
-        return ResponseEntity.ok(lecturePage);
+        // Page<Lecture> => Page<LectureResDto>
+        Page<LectureResDto> lectureResDtoPage =
+                lecturePage.map(lecture -> modelMapper.map(lecture, LectureResDto.class));
+        // Page<LectureResDto> => PagedModel<EntityModel<LectureResDto>>
+        // PagedModel<EntityModel<LectureResDto>> pagedModel =
+        //        assembler.toModel(lectureResDtoPage);
+        PagedModel<LectureResource> pageModel =
+                // assembler.toModel(lectureResDtoPage, resDto -> new LectureResource(resDto));
+                assembler.toModel(lectureResDtoPage, LectureResource::new);
+        return ResponseEntity.ok(pageModel);
     }
-
     //constructor injection
 //    public LectureController(LectureRepository lectureRepository) {
 //        this.lectureRepository = lectureRepository;
 //    }
+
 
     @PostMapping
     public ResponseEntity<?> createLecture(@RequestBody @Valid LectureReqDto lectureReqDto, Errors errors) {
