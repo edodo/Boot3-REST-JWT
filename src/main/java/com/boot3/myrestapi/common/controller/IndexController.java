@@ -1,5 +1,6 @@
-package com.boot3.myrestapi.lectures;
+package com.boot3.myrestapi.common.controller;
 
+import com.boot3.myrestapi.lectures.LectureController;
 import org.springframework.hateoas.RepresentationModel;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
