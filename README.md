@@ -69,3 +69,7 @@ Spring Data JPA의 페이징과 정렬
 security 아키텍처  
 ![security.jpeg](docs%2Fsecurity.jpeg)  
 
+@EnableMethodSecurity  
+ - @PreAuthorize는 해당 메서드가 호출되기 이전에 해당 메서드를 호출할 권한이 있는지를 확인한다.  
+ - hasAuthority('ROLE_ADMIN') 는 ' ROLE_ ' 접두사가 자동으로 추가 되기 때문에 hasRole('ADMIN') 과 유사합니다 .  
+ - @PreAuthorize는 관리자 권한(ROLE_ADMIN)이 없는 username으로 로그인하면 관리자 권한이 없다는 403에러를 발생시킨다.  
