@@ -61,5 +61,8 @@ Spring Data JPA의 페이징과 정렬
  - page : 검색을 원하는 페이지 번호를 나타냅니다.  
  - size : 한 페이지의 보여 줄 게시물 개수를 나타냅니다.  
  - sort : 정렬 방식을 나타냅니다.  
+
 [에러처리]  
- - ProblemDetail을 이용한 에러처리  
+ - ProblemDetail을 이용한 에러처리 
+
+[Spring Security]  
