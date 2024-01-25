@@ -1,5 +1,5 @@
 # Boot3-REST-JWT  
-[REST와JWT_202401.pdf](docs%2FREST%BF%CDJWT_202401.pdf)  
+[REST JWT 강의자료 다운 ](docs%2FREST%20JWT_202401.pdf)  
 
 [Setting Projects]  
 1. Spring Boot  
