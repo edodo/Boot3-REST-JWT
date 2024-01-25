@@ -1,20 +1,22 @@
 package com.boot3.myrestapi.lectures;
 
 import com.boot3.myrestapi.lectures.dto.LectureReqDto;
+import com.boot3.myrestapi.lectures.dto.LectureResDto;
+import com.boot3.myrestapi.lectures.dto.LectureResource;
 import com.boot3.myrestapi.lectures.validator.LectureValidator;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
 import org.springframework.hateoas.MediaTypes;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 
 @RestController
 @RequestMapping(value = "/api/lectures", produces = MediaTypes.HAL_JSON_VALUE)
@@ -46,15 +48,21 @@ public class LectureController {
         //free, offline 필드 초기화
         lecture.update();
         Lecture addedLecture = lectureRepository.save(lecture);
-
-        // api/lectures/10 링크를 생성
-        WebMvcLinkBuilder selfLinkBuilder =
-                WebMvcLinkBuilder.linkTo(LectureController.class).slash(addedLecture.getId());
+        LectureResDto lectureResDto = modelMapper.map(addedLecture, LectureResDto.class);
+        WebMvcLinkBuilder selfLinkBuilder = linkTo(LectureController.class).slash(lectureResDto.getId());
         URI createUri = selfLinkBuilder.toUri();
-        return ResponseEntity.created(createUri).body(addedLecture);
+
+        LectureResource lectureResource = new LectureResource(lectureResDto);
+        lectureResource.add(linkTo(LectureController.class).withRel("query-lectures"));
+        lectureResource.add(selfLinkBuilder.withSelfRel());
+        lectureResource.add(selfLinkBuilder.withRel("update-lecture"));
+        return ResponseEntity.created(createUri).body(lectureResource);
+
     }
 
     private static ResponseEntity<Errors> getErrors(Errors errors) {
         return ResponseEntity.badRequest().body(errors);
     }
+
+
 }

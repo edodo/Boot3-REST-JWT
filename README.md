@@ -36,3 +36,17 @@ https://restfulapi.net/http-status-201-created/
 [프로파일 정의]  
 프로파일 가이드 : https://docs.spring.io/spring-boot/docs/1.2.0.M1/reference/html/boot-features-profiles.html  
 
+[jpa 옵션]  
+application.properties 의 spring.jpa.hibernate.ddl-auto=create-drop
+```
+spring.jpa.hibernate.ddl-auto=create|create-drop|update|validate|none  
+ - create  
+  JPA가 DB와 상호작용할 때 기존에 있던 스키마(테이블)을 삭제하고 새로 만드는 것을 뜻한다.  
+ - create-drop
+  JPA 종료 시점에 기존에 있었던 테이블을 삭제합니다.
+ - update
+  기존 스키마는 유지하고, 새로운 것만 추가하고, 기존의 데이터도 유지한다. 
+  변경된 부분만 반영함, 주로 개발 할 때 적합하다.
+ - validate
+  엔티티와 테이블이 정상 매핑 되어 있는지를 검증합니다.
+```  
