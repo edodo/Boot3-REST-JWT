@@ -66,3 +66,6 @@ Spring Data JPA의 페이징과 정렬
  - ProblemDetail을 이용한 에러처리 
 
 [Spring Security]  
+security 아키텍처  
+![security.jpeg](docs%2Fsecurity.jpeg)  
+
